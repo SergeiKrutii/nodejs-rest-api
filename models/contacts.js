@@ -1,5 +1,6 @@
 const Joi = require("joi");
 const { Schema, model } = require("mongoose");
+const { handleMongooseError } = require("../helpers");
 
 const contactsSchema = new Schema({
   name: {
@@ -18,10 +19,7 @@ const contactsSchema = new Schema({
   },
 });
 
-contactsSchema.post("save", (error, data, next) => {
-  error.status = 400;
-  next();
-});
+contactsSchema.post("save", handleMongooseError);
 
 const Contact = model("contact", contactsSchema);
 
