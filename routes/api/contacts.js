@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const ctrl = require("../../controllers/contacts/index");
-console.log("🚀 ~ ctrl:", ctrl);
 const { addSchema, updateFavoriteSchema } = require("../../models/contacts");
 const { validateBody, isValidId } = require("../../middlewares");
 
+router.get("/", ctrl.getAllContacts);
 router.get("/", ctrl.getAllContacts);
 
 router.get("/:contactId", ctrl.getContactById);
@@ -20,7 +20,7 @@ router.put(
   ctrl.updateContact
 );
 router.patch(
-  "/:contactId/favorite",
+  "/",
   isValidId,
   validateBody(updateFavoriteSchema),
   ctrl.updateStatusContact
