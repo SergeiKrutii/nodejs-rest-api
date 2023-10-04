@@ -26,6 +26,9 @@ const userSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "user",
   },
+  avatarUrl: {
+    type: String,
+  },
 });
 userSchema.post("save", handleMongooseError);
 

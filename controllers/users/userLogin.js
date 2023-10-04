@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const { User } = require("../../models");
 const { HttpError } = require("../../helpers");
 const jwt = require("jsonwebtoken");
-
+require("dotenv").config();
 const { SECRET_KEY } = process.env;
 
 const login = async (req, res, next) => {
