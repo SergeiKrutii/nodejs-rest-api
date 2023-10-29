@@ -7,6 +7,12 @@ const { schemas } = require("../../models/users");
 const { validateBody, isValidToken } = require("../../middlewares");
 
 router.post("/signup", validateBody(schemas.registerSchema), ctrl.register);
+router.get("/verify/:verificationToken", ctrl.verificationUser);
+router.post(
+  "/verify",
+  validateBody(schemas.verifikation),
+  ctrl.resendVerification
+);
 router.post("/login", validateBody(schemas.loginSchema), ctrl.login);
 router.post("/logout", isValidToken, ctrl.logout);
 router.get("/current", isValidToken, ctrl.getCurrentUser);

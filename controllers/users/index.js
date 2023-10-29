@@ -1,10 +1,12 @@
 const ctrlWrapper = require("../../helpers/ctrlWrapper");
-const register = require("../../controllers/users/userRegister");
-const login = require("../../controllers/users/userLogin");
-const logout = require("../../controllers/users/userLogout");
-const getCurrentUser = require("../../controllers/users/userCurrent");
-const userSubscription = require("../../controllers/users/userSubscription");
-const updateAvatar = require("../../controllers/users/updateAvatar");
+const register = require("./userRegister");
+const login = require("./userLogin");
+const logout = require("./userLogout");
+const getCurrentUser = require("./userCurrent");
+const userSubscription = require("./userSubscription");
+const updateAvatar = require("./updateAvatar");
+const verificationUser = require("./verificationUser");
+const resendVerification = require("./resendVerification");
 
 module.exports = {
   register: ctrlWrapper(register),
@@ -13,4 +15,6 @@ module.exports = {
   getCurrentUser: ctrlWrapper(getCurrentUser),
   userSubscription: ctrlWrapper(userSubscription),
   updateAvatar: ctrlWrapper(updateAvatar),
+  verificationUser: ctrlWrapper(verificationUser),
+  resendVerification: ctrlWrapper(resendVerification),
 };
